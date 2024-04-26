@@ -21,6 +21,11 @@ class RoomsController < ApplicationController
   def edit
   end
 
+  def show
+    @room_message = RoomMessage.new room: @room
+    @room_messages = @room.room_messages
+  end
+  
   def update
     if @room.update_attributes(permitted_parameters)
       flash[:success] = "Room #{@room.name} was updated successfully"

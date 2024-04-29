@@ -2467,3 +2467,1655 @@ Processing by RoomsController#show as HTML
 Completed 200 OK in 306ms (Views: 212.0ms | ActiveRecord: 2.2ms | Allocations: 36400)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdRoomMessages (20240426160814)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdRoomMessages (20240426160929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aroom_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_user_id" ON "aroom_messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_room_id" ON "aroom_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aroom_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "room_messages"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "room_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76bc7b974e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_user_id" ON "room_messages" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "aroom_messages"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdRoomMessages (20240426160929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aroom_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_user_id" ON "aroom_messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_room_id" ON "aroom_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aroom_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "room_messages"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "room_messages"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76bc7b974e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_user_id" ON "room_messages" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "aroom_messages"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdRoomMessages (20240426160929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aroom_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_user_id" ON "aroom_messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_room_id" ON "aroom_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aroom_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "room_messages"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "room_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76bc7b974e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_user_id" ON "room_messages" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "aroom_messages"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveUserIdRoomMessages (20240426160929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aroom_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_user_id" ON "aroom_messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_room_id" ON "aroom_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aroom_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "room_messages"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "room_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("id","room_id","message","created_at","updated_at")
+                     SELECT "id","room_id","message","created_at","updated_at" FROM "aroom_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aroom_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240426160929"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:15:43 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 619)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:15:50 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 927)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3428)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 9855)
+Completed 200 OK in 45ms (Views: 28.3ms | ActiveRecord: 0.7ms | Allocations: 17265)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:15:51 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2135)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 8207)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.5ms | Allocations: 9057)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:15:52 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 482)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:17:26 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 472)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:17:28 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.4ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 35.4ms | Allocations: 9679)
+  Rendered layout layouts/application.html.erb (Duration: 36.2ms | Allocations: 9764)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.5ms | Allocations: 11233)
+
+
+  
+ActionView::Template::Error (Rails couldn't find a valid model for User association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.
+
+          raise NameError, msg
+          ^^^^^):
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+    16:               <img src="<%= gravatar_url(room_message.user) %>" class="avatar" alt="">
+    17:             </div>
+    18: 
+    19:             <div class="col">
+  
+app/views/rooms/show.html.erb:16
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:17:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.5ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 33.2ms | Allocations: 3189)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 9797)
+Completed 200 OK in 57ms (Views: 52.1ms | ActiveRecord: 0.5ms | Allocations: 11241)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:17:46 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 484)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:18:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 2789.6ms | Allocations: 61699)
+Completed 200 OK in 2793ms (Views: 2790.3ms | ActiveRecord: 0.5ms | Allocations: 62529)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:18:49 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 472)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:18:52 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2141)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 8302)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.5ms | Allocations: 9093)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:18:54 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 8317)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 0.6ms | Allocations: 9109)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:18:55 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2137)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8217)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.5ms | Allocations: 9008)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:18:56 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 8207)
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.7ms | Allocations: 8998)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:19:01 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.5ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 8198)
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.6ms | Allocations: 8989)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:19:02 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.5ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 8207)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.4ms | Allocations: 8999)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:19:03 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.1ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8198)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.6ms | Allocations: 8989)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:19:04 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.9ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 8293)
+Completed 200 OK in 28ms (Views: 23.7ms | ActiveRecord: 0.6ms | Allocations: 9084)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:19:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 8295)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.5ms | Allocations: 9087)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:19:07 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"aasd", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 472)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+actionpack (7.0.8.1) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:19:55 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"aasd", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.7ms | Allocations: 14608)
+
+
+  
+NameError (Rails couldn't find a valid model for User association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.
+
+          raise NameError, msg
+          ^^^^^):
+  
+app/controllers/room_messages_controller.rb:5:in `create'
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:20:28 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"aasd", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "aasd"], ["created_at", "2024-04-26 16:20:28.989066"], ["updated_at", "2024-04-26 16:20:28.989066"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 47ms (ActiveRecord: 6.8ms | Allocations: 10321)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:20:31 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"aasd", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "aasd"], ["created_at", "2024-04-26 16:20:31.825586"], ["updated_at", "2024-04-26 16:20:31.825586"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 3.1ms | Allocations: 2499)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:20:33 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.4ms | Allocations: 926)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3637)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 10069)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.6ms | Allocations: 11418)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:20:35 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2213)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 8278)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.6ms | Allocations: 9107)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:20:36 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2133)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 8198)
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 0.4ms | Allocations: 8988)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:20:38 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-26 16:20:38.559416"], ["updated_at", "2024-04-26 16:20:38.559416"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 3.3ms | Allocations: 2470)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:20:39 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2173)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 8241)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 0.9ms | Allocations: 9031)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:21:50 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.5ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 54.5ms | Allocations: 3242)
+  Rendered layout layouts/application.html.erb (Duration: 77.3ms | Allocations: 9739)
+Completed 200 OK in 86ms (Views: 80.0ms | ActiveRecord: 1.0ms | Allocations: 11167)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:22:41 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.6ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 7545)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 7630)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms | Allocations: 9057)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<RoomMessage id: 3, room_id: 1, message: "a", created_at: "2024-04-26 16:20:38.559416000 +0000", updated_at: "2024-04-26 16:20:38.559416000 +0000">):
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+    16:               <img src="<%= gravatar_url(room_message.user) %>" class="avatar" alt="">
+    17:             </div>
+    18: 
+    19:             <div class="col">
+  
+app/views/rooms/show.html.erb:16
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:22:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 6467)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 6546)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 7354)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<RoomMessage id: 3, room_id: 1, message: "a", created_at: "2024-04-26 16:20:38.559416000 +0000", updated_at: "2024-04-26 16:20:38.559416000 +0000">):
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+    16:               <img src="<%= gravatar_url(room_message.user) %>" class="avatar" alt="">
+    17:             </div>
+    18: 
+    19:             <div class="col">
+  
+app/views/rooms/show.html.erb:16
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:22:56 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.3ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 3284)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 9903)
+Completed 200 OK in 53ms (Views: 49.3ms | ActiveRecord: 0.5ms | Allocations: 11302)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:24:39 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.8ms | Allocations: 1164)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 20.2ms | Allocations: 4531)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 4628)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 2.3ms | Allocations: 12952)
+
+
+  
+ActionView::Template::Error (Association named 'id' was not found on RoomMessage; perhaps you misspelled it?):
+     9: 
+    10:   <div class="col">
+    11:     <div class="chat">
+    12:       <% @room_messages.each do |room_message| %>
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+  
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:25:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.7ms | Allocations: 927)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2753)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2838)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.7ms | Allocations: 10756)
+
+
+  
+ActionView::Template::Error (Association named 'room_message_id' was not found on RoomMessage; perhaps you misspelled it?):
+     9: 
+    10:   <div class="col">
+    11:     <div class="chat">
+    12:       <% @room_messages.each do |room_message| %>
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+  
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:25:47 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2475)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2554)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms | Allocations: 3518)
+
+
+  
+ActionView::Template::Error (Association named 'room_message_id' was not found on RoomMessage; perhaps you misspelled it?):
+     9: 
+    10:   <div class="col">
+    11:     <div class="chat">
+    12:       <% @room_messages.each do |room_message| %>
+    13:         <div class="chat-message-container">
+    14:           <div class="row no-gutters">
+    15:             <div class="col-auto text-center">
+  
+app/views/rooms/show.html.erb:12
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:25:57 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.9ms | Allocations: 927)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2636)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 9286)
+Completed 200 OK in 38ms (Views: 22.2ms | ActiveRecord: 2.2ms | Allocations: 17345)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:25:59 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 8225)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 0.5ms | Allocations: 9213)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:26:00 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2103)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8177)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 0.4ms | Allocations: 9078)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:26:01 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 8216)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.5ms | Allocations: 9117)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:26:02 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2103)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 8183)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 9084)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:26:03 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.1ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 8222)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.6ms | Allocations: 9123)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:26:07 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2103)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 8195)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.5ms | Allocations: 9096)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:26:13 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 8248)
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 0.6ms | Allocations: 9150)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:26:41 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.5ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 29.8ms | Allocations: 3170)
+  Rendered layout layouts/application.html.erb (Duration: 52.6ms | Allocations: 9668)
+Completed 200 OK in 60ms (Views: 55.9ms | ActiveRecord: 0.5ms | Allocations: 11209)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:28:14 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.0ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 41.3ms | Allocations: 3185)
+  Rendered layout layouts/application.html.erb (Duration: 58.7ms | Allocations: 9698)
+Completed 200 OK in 66ms (Views: 60.9ms | ActiveRecord: 0.6ms | Allocations: 11303)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:28:51 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 1105)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 31.4ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 54.4ms | Allocations: 9672)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.5ms | Allocations: 11273)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:28:53 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2148)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 8213)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.8ms | Allocations: 9197)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:28:54 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.5ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2106)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 8203)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.4ms | Allocations: 9104)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:28:55 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2148)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 8213)
+Completed 200 OK in 26ms (Views: 21.0ms | ActiveRecord: 0.7ms | Allocations: 9114)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:28:58 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"b", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "b"], ["created_at", "2024-04-26 16:28:58.189818"], ["updated_at", "2024-04-26 16:28:58.189818"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.0ms | Allocations: 3088)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:28:58 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 764)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2333)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8567)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.6ms | Allocations: 9553)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-26 23:29:00 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2106)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 8168)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.5ms | Allocations: 9069)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-26 23:29:01 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 5.5ms | Allocations: 721)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2190)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 8273)
+Completed 200 OK in 32ms (Views: 27.9ms | ActiveRecord: 1.0ms | Allocations: 9174)
+
+
+Started GET "/rooms/new" for 127.0.0.1 at 2024-04-26 23:31:10 +0700
+Processing by RoomsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 28.6ms | Allocations: 4407)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 30.5ms | Allocations: 4667)
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 10618)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.0ms | Allocations: 11006)
+
+
+Started POST "/rooms" for 127.0.0.1 at 2024-04-26 23:31:14 +0700
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"abcdefg"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "abcdefg"], ["created_at", "2024-04-26 16:31:14.045514"], ["updated_at", "2024-04-26 16:31:14.045514"]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+Redirected to http://127.0.0.1:3000/rooms
+Completed 302 Found in 12ms (ActiveRecord: 3.1ms | Allocations: 2772)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2024-04-26 23:31:14 +0700
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 807)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1041)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 7247)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.1ms | Allocations: 7639)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-26 23:31:15 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2163)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 8231)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.4ms | Allocations: 9185)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:31:18 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"halo", "room_id"=>"3"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 3], ["message", "halo"], ["created_at", "2024-04-26 16:31:18.425593"], ["updated_at", "2024-04-26 16:31:18.425593"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.3ms | Allocations: 2475)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:31:19 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"halo", "room_id"=>"3"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 3], ["message", "halo"], ["created_at", "2024-04-26 16:31:19.483357"], ["updated_at", "2024-04-26 16:31:19.483357"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 2.5ms | Allocations: 2456)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-26 23:31:20 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2203)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8283)
+Completed 200 OK in 25ms (Views: 21.6ms | ActiveRecord: 0.5ms | Allocations: 9184)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-26 23:31:24 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"3"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 3], ["message", "tes"], ["created_at", "2024-04-26 16:31:24.378012"], ["updated_at", "2024-04-26 16:31:24.378012"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 2.7ms | Allocations: 2456)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-26 23:31:24 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.4ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8327)
+Completed 200 OK in 28ms (Views: 23.7ms | ActiveRecord: 0.6ms | Allocations: 9228)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:11:17 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 45.1ms | Allocations: 4783)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 70.1ms | Allocations: 5348)
+  Rendered layout layouts/application.html.erb (Duration: 7734.5ms | Allocations: 165874)
+Completed 200 OK in 8036ms (Views: 7782.4ms | ActiveRecord: 1.5ms | Allocations: 171903)
+
+

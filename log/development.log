@@ -11204,3 +11204,1312 @@ Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1430)
   ↳ app/channels/room_channel.rb:3:in `subscribed'
 RoomChannel is transmitting the subscription confirmation
 RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:06:35 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 10756)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.3ms | Allocations: 11692)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:35 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:35 +0700
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:06:35 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:35 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 4]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 427ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1958)
+
+
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:06:36 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 10741)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.3ms | Allocations: 11677)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:36 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:36 +0700
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:06:36 +0700
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"3"}
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:36 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 10ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 2581)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:06:37 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 10756)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 0.3ms | Allocations: 11692)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:37 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:37 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:06:37 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:37 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 0.6ms | Allocations: 4871)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:39 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 845)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1640)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 10768)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.3ms | Allocations: 11704)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:39 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:39 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:39 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:39 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 0.7ms | Allocations: 6896)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:06:42 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1623)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 10982)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.4ms | Allocations: 11921)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 11ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 4981)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 10972)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.3ms | Allocations: 11908)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:43 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.7ms | Allocations: 6952)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:06:46 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 10765)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.3ms | Allocations: 11701)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:46 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:46 +0700
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:06:46 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:46 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 2309)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:06:47 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 10928)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.3ms | Allocations: 11864)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:47 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:47 +0700
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:06:47 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:47 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 4]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1608)
+
+
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:48 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 10780)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.3ms | Allocations: 11716)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:48 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:06:49 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:06:49 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:06:49 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 0.5ms | Allocations: 6799)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:06:51 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.5ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 17:06:51.572806"], ["updated_at", "2024-04-29 17:06:51.572806"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 89, room_id: 1, message: "a", created_at: "2024-04-29 17:06:51.572806000 +0000", updated_at: "2024-04-29 17:06:51.572806000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.4ms | Allocations: 2931)
+
+
+RoomChannel transmitting {"id"=>89, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T17:06:51.572Z", "updated_at"=>"2024-04-29T17:06:51.572Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:14 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 181.0ms | Allocations: 33995)
+Completed 200 OK in 185ms (Views: 182.0ms | ActiveRecord: 0.3ms | Allocations: 34931)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:15 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:07:15 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:15 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:15 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+RoomChannel is transmitting the subscription confirmation
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 54ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 7731)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:44 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.9ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 165.0ms | Allocations: 33958)
+Completed 200 OK in 169ms (Views: 165.9ms | ActiveRecord: 0.3ms | Allocations: 34894)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:44 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:07:44 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:44 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:44 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 10ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 7120)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:53 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 177.8ms | Allocations: 33791)
+Completed 200 OK in 181ms (Views: 178.5ms | ActiveRecord: 0.3ms | Allocations: 34727)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:53 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:07:53 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:07:53 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:07:53 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.4ms | Allocations: 7051)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:09 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 176.5ms | Allocations: 33784)
+Completed 200 OK in 181ms (Views: 177.4ms | ActiveRecord: 0.4ms | Allocations: 34720)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:09 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:09 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:09 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:09 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.7ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.9ms | Allocations: 6980)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.8ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 10866)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.4ms | Allocations: 11802)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 23ms (Views: 15.9ms | ActiveRecord: 0.8ms | Allocations: 7078)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1627)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 10990)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.4ms | Allocations: 11926)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:11 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 17ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 4844)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:09:12 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 10887)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.4ms | Allocations: 11823)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:12 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:12 +0700
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:09:12 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:12 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 10ms (Views: 3.3ms | ActiveRecord: 0.7ms | Allocations: 2305)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:09:13 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10842)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 11778)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:13 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:14 +0700
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:09:14 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:14 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+RoomChannel is transmitting the subscription confirmation
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 0.5ms | Allocations: 2827)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:15 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 10849)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.3ms | Allocations: 11785)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:15 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:15 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:15 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:15 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 6888)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 184.2ms | Allocations: 35774)
+Completed 200 OK in 188ms (Views: 185.0ms | ActiveRecord: 0.4ms | Allocations: 36710)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:44 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:44 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:44 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:44 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 21ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 6936)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:46 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.5ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 10774)
+Completed 200 OK in 64ms (Views: 59.6ms | ActiveRecord: 0.4ms | Allocations: 11710)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:46 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:46 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:46 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:46 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 7060)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:09:47 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 17:09:47.865323"], ["updated_at", "2024-04-29 17:09:47.865323"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 90, room_id: 1, message: "tes", created_at: "2024-04-29 17:09:47.865323000 +0000", updated_at: "2024-04-29 17:09:47.865323000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.6ms | Allocations: 2924)
+
+
+RoomChannel transmitting {"id"=>90, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T17:09:47.865Z", "updated_at"=>"2024-04-29T17:09:47.865Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:09:54 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 17:09:54.028684"], ["updated_at", "2024-04-29 17:09:54.028684"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 91, room_id: 1, message: "tes", created_at: "2024-04-29 17:09:54.028684000 +0000", updated_at: "2024-04-29 17:09:54.028684000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.3ms | Allocations: 2915)
+
+
+RoomChannel transmitting {"id"=>91, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T17:09:54.028Z", "updated_at"=>"2024-04-29T17:09:54.028Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:55 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1627)
+  Rendered layout layouts/application.html.erb (Duration: 194.2ms | Allocations: 35910)
+Completed 200 OK in 198ms (Views: 195.0ms | ActiveRecord: 0.3ms | Allocations: 36846)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:55 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:09:56 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:09:56 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:09:56 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 1.0ms | Allocations: 7311)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:09:57 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 17:09:57.490766"], ["updated_at", "2024-04-29 17:09:57.490766"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 92, room_id: 1, message: "a", created_at: "2024-04-29 17:09:57.490766000 +0000", updated_at: "2024-04-29 17:09:57.490766000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 2.9ms | Allocations: 2855)
+
+
+RoomChannel transmitting {"id"=>92, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T17:09:57.490Z", "updated_at"=>"2024-04-29T17:09:57.490Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:09:59 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 17:09:59.839917"], ["updated_at", "2024-04-29 17:09:59.839917"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 93, room_id: 1, message: "tes", created_at: "2024-04-29 17:09:59.839917000 +0000", updated_at: "2024-04-29 17:09:59.839917000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 2.9ms | Allocations: 2900)
+
+
+RoomChannel transmitting {"id"=>93, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T17:09:59.839Z", "updated_at"=>"2024-04-29T17:09:59.839Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:10:14 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 17:10:14.688892"], ["updated_at", "2024-04-29 17:10:14.688892"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 94, room_id: 1, message: "a", created_at: "2024-04-29 17:10:14.688892000 +0000", updated_at: "2024-04-29 17:10:14.688892000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.1ms | Allocations: 2933)
+
+
+RoomChannel transmitting {"id"=>94, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T17:10:14.688Z", "updated_at"=>"2024-04-29T17:10:14.688Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:10:16 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.6ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 10753)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.4ms | Allocations: 11689)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:10:17 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:10:17 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:10:17 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:10:17 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.8ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 1.0ms | Allocations: 7601)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:10:21 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"b", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "b"], ["created_at", "2024-04-29 17:10:21.656618"], ["updated_at", "2024-04-29 17:10:21.656618"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 95, room_id: 1, message: "b", created_at: "2024-04-29 17:10:21.656618000 +0000", updated_at: "2024-04-29 17:10:21.656618000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.4ms | Allocations: 2942)
+
+
+RoomChannel transmitting {"id"=>95, "room_id"=>1, "message"=>"b", "created_at"=>"2024-04-29T17:10:21.656Z", "updated_at"=>"2024-04-29T17:10:21.656Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:10:24 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"asd", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "asd"], ["created_at", "2024-04-29 17:10:24.696198"], ["updated_at", "2024-04-29 17:10:24.696198"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 96, room_id: 1, message: "asd", created_at: "2024-04-29 17:10:24.696198000 +0000", updated_at: "2024-04-29 17:10:24.696198000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.6ms | Allocations: 2921)
+
+
+RoomChannel transmitting {"id"=>96, "room_id"=>1, "message"=>"asd", "created_at"=>"2024-04-29T17:10:24.696Z", "updated_at"=>"2024-04-29T17:10:24.696Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 00:10:28 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"dadsd", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.6ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "dadsd"], ["created_at", "2024-04-29 17:10:28.310259"], ["updated_at", "2024-04-29 17:10:28.310259"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 97, room_id: 1, message: "dadsd", created_at: "2024-04-29 17:10:28.310259000 +0000", updated_at: "2024-04-29 17:10:28.310259000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.7ms | Allocations: 2918)
+
+
+RoomChannel transmitting {"id"=>97, "room_id"=>1, "message"=>"dadsd", "created_at"=>"2024-04-29T17:10:28.310Z", "updated_at"=>"2024-04-29T17:10:28.310Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:10:54 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 146.8ms | Allocations: 33460)
+Completed 200 OK in 151ms (Views: 147.7ms | ActiveRecord: 0.4ms | Allocations: 34396)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:10:55 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:10:55 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:10:55 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:10:55 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 0.6ms | Allocations: 7758)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1623)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 11009)
+Completed 200 OK in 33ms (Views: 29.5ms | ActiveRecord: 0.4ms | Allocations: 11948)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:05 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:05 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:05 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:05 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.7ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 16ms (Views: 10.8ms | ActiveRecord: 0.9ms | Allocations: 7962)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:10 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 157.4ms | Allocations: 33925)
+Completed 200 OK in 162ms (Views: 158.3ms | ActiveRecord: 0.4ms | Allocations: 34861)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:10 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:10 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:10 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:10 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 7921)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:11:14 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 10836)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.3ms | Allocations: 11772)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:14 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:14 +0700
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-30 00:11:14 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:14 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 2473)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 10828)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.4ms | Allocations: 11764)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMw
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 11ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 4811)
+
+
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 10736)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.3ms | Allocations: 11672)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:15 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.5ms | Allocations: 7885)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:11:16 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10892)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 11828)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:16 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:17 +0700
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:11:17 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:17 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 4]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 1594)
+
+
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:18 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.5ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 10754)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 0.4ms | Allocations: 11690)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:18 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:18 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:18 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:18 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.6ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.9ms | Allocations: 7976)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:31 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1627)
+  Rendered layout layouts/application.html.erb (Duration: 173.6ms | Allocations: 33942)
+Completed 200 OK in 178ms (Views: 174.3ms | ActiveRecord: 0.4ms | Allocations: 34879)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:31 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:31 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 00:11:31 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:31 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 7934)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 10965)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.3ms | Allocations: 11901)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 0.5ms | Allocations: 4953)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.7ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 10857)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.3ms | Allocations: 11793)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Started GET "/rooms/4" for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:33 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 4]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1448)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:35 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 824)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1619)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 10836)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.3ms | Allocations: 11772)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:35 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vNA
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 00:11:35 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 00:11:35 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 00:11:35 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:48:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 4817)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg

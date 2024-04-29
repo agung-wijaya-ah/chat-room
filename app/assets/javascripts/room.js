@@ -24,6 +24,7 @@ $(function() {
             lastWeek : 'DD MMM hh:mm',
           }));
           $element.append(content);
+          $element.animate({ scrollTop: $element.prop("scrollHeight")}, 0);
         }
       },
     })

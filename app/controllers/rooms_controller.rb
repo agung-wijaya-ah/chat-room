@@ -24,6 +24,12 @@ class RoomsController < ApplicationController
   def show
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.all
+    respond_to do |format|
+      format.html
+      format.json { 
+        render json: @room_messages
+      }
+    end
   end
   
   def update

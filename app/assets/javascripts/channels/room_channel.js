@@ -15,7 +15,12 @@ $(function() {
         received: function(data) {
           var content = messageTemplate.children().clone(true, true);
           content.find('[data-role="message-text"]').text(data.message);
-          content.find('[data-role="message-date"]').text(data.updated_at);
+          content.find('[data-role="message-date"]').text(moment(data.updated_at).calendar(null,{
+            lastDay : '[Yesterday] hh:mm',
+            sameDay : '[Today] hh:mm',
+            nextDay : '[Tomorrow] hh:mm',
+            lastWeek : '[last] dddd',
+          }));
           $element.append(content);
           $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
         }

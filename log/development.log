@@ -4119,3 +4119,2237 @@ Processing by RoomsController#index as HTML
 Completed 200 OK in 8036ms (Views: 7782.4ms | ActiveRecord: 1.5ms | Allocations: 171903)
 
 
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:12:47 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 871)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 507.4ms | Allocations: 9966)
+  Rendered layout layouts/application.html.erb (Duration: 522.7ms | Allocations: 16310)
+Completed 200 OK in 701ms (Views: 523.8ms | ActiveRecord: 1.4ms | Allocations: 27476)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 17:13:25 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes 123", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes 123"], ["created_at", "2024-04-29 10:13:25.129392"], ["updated_at", "2024-04-29 10:13:25.129392"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.1ms | Allocations: 3992)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:13:26 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 815)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2342)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8654)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.5ms | Allocations: 9660)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-29 17:14:04 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 8387)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.5ms | Allocations: 9289)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 17:14:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 8384)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.7ms | Allocations: 9301)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:14:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.5ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2199)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 8342)
+Completed 200 OK in 25ms (Views: 22.1ms | ActiveRecord: 0.5ms | Allocations: 9243)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 17:14:08 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"b", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "b"], ["created_at", "2024-04-29 10:14:08.561400"], ["updated_at", "2024-04-29 10:14:08.561400"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 2.9ms | Allocations: 2456)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 17:14:09 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 8381)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.5ms | Allocations: 9282)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:14:10 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 8445)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.5ms | Allocations: 9347)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-29 17:14:11 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2245)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 8370)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.5ms | Allocations: 9272)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-29 17:14:11 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 8424)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.5ms | Allocations: 9325)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 17:14:11 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 8392)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.5ms | Allocations: 9294)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:14:12 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.7ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 8375)
+Completed 200 OK in 26ms (Views: 22.2ms | ActiveRecord: 0.6ms | Allocations: 9276)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 17:14:13 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 8393)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.5ms | Allocations: 9294)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-29 17:14:13 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.6ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 8396)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.4ms | Allocations: 9298)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 17:14:15 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"d", "room_id"=>"3"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:11:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 3], ["message", "d"], ["created_at", "2024-04-29 10:14:15.948957"], ["updated_at", "2024-04-29 10:14:15.948957"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.3ms | Allocations: 2461)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 17:14:16 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.4ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 8393)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.5ms | Allocations: 9294)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 17:14:17 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 8378)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.5ms | Allocations: 9279)
+
+
+Started GET "/rooms/3" for 127.0.0.1 at 2024-04-29 17:14:17 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.4ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 3]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2284)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 8427)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.4ms | Allocations: 9328)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 18:55:26 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 35.7ms | Allocations: 4783)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 53.7ms | Allocations: 5348)
+  Rendered layout layouts/application.html.erb (Duration: 738.5ms | Allocations: 34072)
+Completed 200 OK in 998ms (Views: 778.8ms | ActiveRecord: 1.3ms | Allocations: 40102)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 18:55:34 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 871)
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 564.7ms | Allocations: 10072)
+  Rendered layout layouts/application.html.erb (Duration: 580.8ms | Allocations: 16417)
+Completed 200 OK in 758ms (Views: 581.5ms | ActiveRecord: 1.6ms | Allocations: 25806)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 18:55:38 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 11:55:38.758932"], ["updated_at", "2024-04-29 11:55:38.758932"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 11, room_id: 1, message: "tes", created_at: "2024-04-29 11:55:38.758932000 +0000", updated_at: "2024-04-29 11:55:38.758932000 +0000">
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 3.7ms | Allocations: 9449)
+
+
+  
+Redis::CannotConnectError (Operation already in progress - connect(2) for 127.0.0.1:6379 (redis://localhost:6379/1)):
+  
+app/controllers/room_messages_controller.rb:6:in `create'
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 18:55:57 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 11:55:57.364327"], ["updated_at", "2024-04-29 11:55:57.364327"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 12, room_id: 1, message: "tes", created_at: "2024-04-29 11:55:57.364327000 +0000", updated_at: "2024-04-29 11:55:57.364327000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 2.8ms | Allocations: 3238)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 18:55:59 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 813)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2469)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 8881)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.5ms | Allocations: 9878)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 18:56:01 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 11:56:01.286575"], ["updated_at", "2024-04-29 11:56:01.286575"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 13, room_id: 1, message: "a", created_at: "2024-04-29 11:56:01.286575000 +0000", updated_at: "2024-04-29 11:56:01.286575000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.1ms | Allocations: 2677)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 18:56:02 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2370)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 8534)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.5ms | Allocations: 9435)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 18:58:41 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.5ms | Allocations: 1339)
+  [1m[36mRoomMessage Load (6.9ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 121.1ms | Allocations: 11005)
+  Rendered layout layouts/application.html.erb (Duration: 254.8ms | Allocations: 39565)
+Completed 200 OK in 308ms (Views: 252.9ms | ActiveRecord: 8.6ms | Allocations: 57952)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 18:58:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.7ms | Allocations: 828)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2423)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 8740)
+Completed 200 OK in 32ms (Views: 27.2ms | ActiveRecord: 0.9ms | Allocations: 9847)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 18:58:46 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 11:58:46.346668"], ["updated_at", "2024-04-29 11:58:46.346668"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 14, room_id: 2, message: "tes", created_at: "2024-04-29 11:58:46.346668000 +0000", updated_at: "2024-04-29 11:58:46.346668000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 32ms (ActiveRecord: 3.6ms | Allocations: 5966)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 18:58:48 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.7ms | Allocations: 827)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2465)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 8774)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.7ms | Allocations: 9858)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 19:08:50 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 10.2ms | Allocations: 4784)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 5349)
+  Rendered layout layouts/application.html.erb (Duration: 204.8ms | Allocations: 34199)
+Completed 200 OK in 230ms (Views: 209.1ms | ActiveRecord: 1.0ms | Allocations: 40228)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:08:53 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 871)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 59.1ms | Allocations: 10213)
+  Rendered layout layouts/application.html.erb (Duration: 74.0ms | Allocations: 16620)
+Completed 200 OK in 107ms (Views: 74.8ms | ActiveRecord: 1.4ms | Allocations: 26063)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:09:04 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.4ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:09:04.897151"], ["updated_at", "2024-04-29 12:09:04.897151"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 15, room_id: 1, message: "tes", created_at: "2024-04-29 12:09:04.897151000 +0000", updated_at: "2024-04-29 12:09:04.897151000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 30ms (ActiveRecord: 4.1ms | Allocations: 5968)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:13:04 +0700
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:13:04 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:13:04 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.6ms | Allocations: 1337)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 52.2ms | Allocations: 11045)
+  Rendered layout layouts/application.html.erb (Duration: 192.3ms | Allocations: 39840)
+Completed 200 OK in 302ms (Views: 197.3ms | ActiveRecord: 1.7ms | Allocations: 53699)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:13:05 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:13:57 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.9ms | Allocations: 1339)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 107.0ms | Allocations: 11050)
+  Rendered layout layouts/application.html.erb (Duration: 247.7ms | Allocations: 39960)
+Completed 200 OK in 305ms (Views: 252.0ms | ActiveRecord: 3.0ms | Allocations: 58346)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:14:03 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (2.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:14:03.172978"], ["updated_at", "2024-04-29 12:14:03.172978"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 16, room_id: 1, message: "a", created_at: "2024-04-29 12:14:03.172978000 +0000", updated_at: "2024-04-29 12:14:03.172978000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 99ms (ActiveRecord: 4.7ms | Allocations: 5973)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:14:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 827)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2641)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 9013)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 10101)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:14:27 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:14:27.960178"], ["updated_at", "2024-04-29 12:14:27.960178"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 17, room_id: 1, message: "tes", created_at: "2024-04-29 12:14:27.960178000 +0000", updated_at: "2024-04-29 12:14:27.960178000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.4ms | Allocations: 2778)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:14:34 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2496)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 8728)
+Completed 200 OK in 29ms (Views: 23.9ms | ActiveRecord: 0.6ms | Allocations: 9645)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:18:54 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:18:54 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:18:54 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.1ms | Allocations: 1338)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 54.3ms | Allocations: 11125)
+  Rendered layout layouts/application.html.erb (Duration: 197.7ms | Allocations: 39744)
+Completed 200 OK in 291ms (Views: 202.8ms | ActiveRecord: 1.3ms | Allocations: 51073)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:18:54 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:18:56 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.6ms | Allocations: 801)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2636)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 8856)
+Completed 200 OK in 32ms (Views: 26.1ms | ActiveRecord: 0.7ms | Allocations: 9938)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:18:59 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.5ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:18:59.325170"], ["updated_at", "2024-04-29 12:18:59.325170"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 18, room_id: 1, message: "tes", created_at: "2024-04-29 12:18:59.325170000 +0000", updated_at: "2024-04-29 12:18:59.325170000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 21ms (ActiveRecord: 4.1ms | Allocations: 4419)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:19:10 +0700
+Processing by RoomMessagesController#create as HTML
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+Can't verify CSRF token authenticity.
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:19:10.784221"], ["updated_at", "2024-04-29 12:19:10.784221"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 19, room_id: 1, message: "a", created_at: "2024-04-29 12:19:10.784221000 +0000", updated_at: "2024-04-29 12:19:10.784221000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.3ms | Allocations: 2732)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 19:21:54 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 14.5ms | Allocations: 4933)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 18.9ms | Allocations: 5607)
+  Rendered layout layouts/application.html.erb (Duration: 8330.9ms | Allocations: 211907)
+Completed 200 OK in 8416ms (Views: 8343.7ms | ActiveRecord: 1.5ms | Allocations: 220808)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:22:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.9ms | Allocations: 871)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 173.5ms | Allocations: 15025)
+  Rendered layout layouts/application.html.erb (Duration: 196.7ms | Allocations: 24047)
+Completed 200 OK in 267ms (Views: 197.1ms | ActiveRecord: 2.6ms | Allocations: 36664)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:22:05 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:22:05 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:22:07 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:22:07.865158"], ["updated_at", "2024-04-29 12:22:07.865158"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 20, room_id: 1, message: "a", created_at: "2024-04-29 12:22:07.865158000 +0000", updated_at: "2024-04-29 12:22:07.865158000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 3.7ms | Allocations: 4953)
+
+
+RoomChannel transmitting {"id"=>20, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:22:07.865Z", "updated_at"=>"2024-04-29T12:22:07.865Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:22:12 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"b", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "b"], ["created_at", "2024-04-29 12:22:12.320487"], ["updated_at", "2024-04-29 12:22:12.320487"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 21, room_id: 1, message: "b", created_at: "2024-04-29 12:22:12.320487000 +0000", updated_at: "2024-04-29 12:22:12.320487000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 2989)
+
+
+RoomChannel transmitting {"id"=>21, "room_id"=>1, "message"=>"b", "created_at"=>"2024-04-29T12:22:12.320Z", "updated_at"=>"2024-04-29T12:22:12.320Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:22:13 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"d", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "d"], ["created_at", "2024-04-29 12:22:13.758839"], ["updated_at", "2024-04-29 12:22:13.758839"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 22, room_id: 1, message: "d", created_at: "2024-04-29 12:22:13.758839000 +0000", updated_at: "2024-04-29 12:22:13.758839000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.4ms | Allocations: 2963)
+
+
+RoomChannel transmitting {"id"=>22, "room_id"=>1, "message"=>"d", "created_at"=>"2024-04-29T12:22:13.758Z", "updated_at"=>"2024-04-29T12:22:13.758Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:22:15 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"e", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "e"], ["created_at", "2024-04-29 12:22:15.285843"], ["updated_at", "2024-04-29 12:22:15.285843"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 23, room_id: 1, message: "e", created_at: "2024-04-29 12:22:15.285843000 +0000", updated_at: "2024-04-29 12:22:15.285843000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.2ms | Allocations: 2941)
+
+
+RoomChannel transmitting {"id"=>23, "room_id"=>1, "message"=>"e", "created_at"=>"2024-04-29T12:22:15.285Z", "updated_at"=>"2024-04-29T12:22:15.285Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:22:16 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"r", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "r"], ["created_at", "2024-04-29 12:22:16.567981"], ["updated_at", "2024-04-29 12:22:16.567981"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 24, room_id: 1, message: "r", created_at: "2024-04-29 12:22:16.567981000 +0000", updated_at: "2024-04-29 12:22:16.567981000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.1ms | Allocations: 2992)
+
+
+RoomChannel transmitting {"id"=>24, "room_id"=>1, "message"=>"r", "created_at"=>"2024-04-29T12:22:16.567Z", "updated_at"=>"2024-04-29T12:22:16.567Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:24:02 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:24:02.066788"], ["updated_at", "2024-04-29 12:24:02.066788"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 25, room_id: 1, message: "tes", created_at: "2024-04-29 12:24:02.066788000 +0000", updated_at: "2024-04-29 12:24:02.066788000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.0ms | Allocations: 2970)
+
+
+RoomChannel transmitting {"id"=>25, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:24:02.066Z", "updated_at"=>"2024-04-29T12:24:02.066Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:24:02 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 815)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2978)
+  Rendered layout layouts/application.html.erb (Duration: 137.7ms | Allocations: 32094)
+Completed 200 OK in 143ms (Views: 138.5ms | ActiveRecord: 0.5ms | Allocations: 33085)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:24:02 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:24:03 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:24:03 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:24:17 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:24:17.754249"], ["updated_at", "2024-04-29 12:24:17.754249"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 26, room_id: 1, message: "tes", created_at: "2024-04-29 12:24:17.754249000 +0000", updated_at: "2024-04-29 12:24:17.754249000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 3.5ms | Allocations: 2980)
+
+
+RoomChannel transmitting {"id"=>26, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:24:17.754Z", "updated_at"=>"2024-04-29T12:24:17.754Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:24:25 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:24:25.315251"], ["updated_at", "2024-04-29 12:24:25.315251"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 27, room_id: 1, message: "a", created_at: "2024-04-29 12:24:25.315251000 +0000", updated_at: "2024-04-29 12:24:25.315251000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 2982)
+
+
+RoomChannel transmitting {"id"=>27, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:24:25.315Z", "updated_at"=>"2024-04-29T12:24:25.315Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:24:32 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:24:32.988178"], ["updated_at", "2024-04-29 12:24:32.988178"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 28, room_id: 1, message: "a", created_at: "2024-04-29 12:24:32.988178000 +0000", updated_at: "2024-04-29 12:24:32.988178000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.7ms | Allocations: 2999)
+
+
+RoomChannel transmitting {"id"=>28, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:24:32.988Z", "updated_at"=>"2024-04-29T12:24:32.988Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:24:34 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 11959)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.9ms | Allocations: 12861)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:24:34 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:24:34 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:24:34 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:24:35 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:24:35.889069"], ["updated_at", "2024-04-29 12:24:35.889069"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 29, room_id: 1, message: "tes", created_at: "2024-04-29 12:24:35.889069000 +0000", updated_at: "2024-04-29 12:24:35.889069000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.2ms | Allocations: 2961)
+
+
+RoomChannel transmitting {"id"=>29, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:24:35.889Z", "updated_at"=>"2024-04-29T12:24:35.889Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:28:24 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.6ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3000)
+  Rendered layout layouts/application.html.erb (Duration: 180.6ms | Allocations: 33332)
+Completed 200 OK in 186ms (Views: 181.5ms | ActiveRecord: 0.6ms | Allocations: 34234)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:24 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:28:25 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:25 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:28:27 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:28:27.156054"], ["updated_at", "2024-04-29 12:28:27.156054"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 30, room_id: 1, message: "a", created_at: "2024-04-29 12:28:27.156054000 +0000", updated_at: "2024-04-29 12:28:27.156054000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.4ms | Allocations: 2964)
+
+
+RoomChannel transmitting {"id"=>30, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:28:27.156Z", "updated_at"=>"2024-04-29T12:28:27.156Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:28:30 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"b", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "b"], ["created_at", "2024-04-29 12:28:30.380893"], ["updated_at", "2024-04-29 12:28:30.380893"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 31, room_id: 1, message: "b", created_at: "2024-04-29 12:28:30.380893000 +0000", updated_at: "2024-04-29 12:28:30.380893000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 2.7ms | Allocations: 2976)
+
+
+RoomChannel transmitting {"id"=>31, "room_id"=>1, "message"=>"b", "created_at"=>"2024-04-29T12:28:30.380Z", "updated_at"=>"2024-04-29T12:28:30.380Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:28:31 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3092)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 12032)
+Completed 200 OK in 42ms (Views: 33.7ms | ActiveRecord: 0.7ms | Allocations: 12933)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:31 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:28:31 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:31 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:28:49 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:28:49.813357"], ["updated_at", "2024-04-29 12:28:49.813357"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 32, room_id: 1, message: "a", created_at: "2024-04-29 12:28:49.813357000 +0000", updated_at: "2024-04-29 12:28:49.813357000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.4ms | Allocations: 2973)
+
+
+RoomChannel transmitting {"id"=>32, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:28:49.813Z", "updated_at"=>"2024-04-29T12:28:49.813Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:28:52 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3126)
+  Rendered layout layouts/application.html.erb (Duration: 171.2ms | Allocations: 34596)
+Completed 200 OK in 175ms (Views: 172.0ms | ActiveRecord: 0.5ms | Allocations: 35497)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:52 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:28:53 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:28:53 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:28:54 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:28:54.782665"], ["updated_at", "2024-04-29 12:28:54.782665"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 33, room_id: 1, message: "a", created_at: "2024-04-29 12:28:54.782665000 +0000", updated_at: "2024-04-29 12:28:54.782665000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 2.8ms | Allocations: 2970)
+
+
+RoomChannel transmitting {"id"=>33, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:28:54.782Z", "updated_at"=>"2024-04-29T12:28:54.782Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:29:19 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3172)
+  Rendered layout layouts/application.html.erb (Duration: 154.9ms | Allocations: 34739)
+Completed 200 OK in 160ms (Views: 155.9ms | ActiveRecord: 0.7ms | Allocations: 35640)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:29:19 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:29:19 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:29:19 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:29:21 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:29:21.379320"], ["updated_at", "2024-04-29 12:29:21.379320"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 34, room_id: 1, message: "tes", created_at: "2024-04-29 12:29:21.379320000 +0000", updated_at: "2024-04-29 12:29:21.379320000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.7ms | Allocations: 2982)
+
+
+RoomChannel transmitting {"id"=>34, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:29:21.379Z", "updated_at"=>"2024-04-29T12:29:21.379Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:30:01 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "a"], ["created_at", "2024-04-29 12:30:01.191638"], ["updated_at", "2024-04-29 12:30:01.191638"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 35, room_id: 1, message: "a", created_at: "2024-04-29 12:30:01.191638000 +0000", updated_at: "2024-04-29 12:30:01.191638000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.3ms | Allocations: 2961)
+
+
+RoomChannel transmitting {"id"=>35, "room_id"=>1, "message"=>"a", "created_at"=>"2024-04-29T12:30:01.191Z", "updated_at"=>"2024-04-29T12:30:01.191Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:30:01 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", ""], ["created_at", "2024-04-29 12:30:01.589546"], ["updated_at", "2024-04-29 12:30:01.589546"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 36, room_id: 1, message: "", created_at: "2024-04-29 12:30:01.589546000 +0000", updated_at: "2024-04-29 12:30:01.589546000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.5ms | Allocations: 2976)
+
+
+RoomChannel transmitting {"id"=>36, "room_id"=>1, "message"=>"", "created_at"=>"2024-04-29T12:30:01.589Z", "updated_at"=>"2024-04-29T12:30:01.589Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:30:04 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3294)
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | Allocations: 12280)
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 0.7ms | Allocations: 13183)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:30:04 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:30:04 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:30:04 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:30:07 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:30:07.487947"], ["updated_at", "2024-04-29 12:30:07.487947"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 37, room_id: 1, message: "tes", created_at: "2024-04-29 12:30:07.487947000 +0000", updated_at: "2024-04-29 12:30:07.487947000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.5ms | Allocations: 2973)
+
+
+RoomChannel transmitting {"id"=>37, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:30:07.487Z", "updated_at"=>"2024-04-29T12:30:07.487Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:30:58 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:30:58.896811"], ["updated_at", "2024-04-29 12:30:58.896811"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 38, room_id: 1, message: "tes", created_at: "2024-04-29 12:30:58.896811000 +0000", updated_at: "2024-04-29 12:30:58.896811000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 2976)
+
+
+RoomChannel transmitting {"id"=>38, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:30:58.896Z", "updated_at"=>"2024-04-29T12:30:58.896Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:30:59 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3386)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 12302)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.5ms | Allocations: 13204)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:30:59 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:31:00 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:31:00 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-29 19:31:20 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3378)
+  Rendered layout layouts/application.html.erb (Duration: 149.4ms | Allocations: 34853)
+Completed 200 OK in 154ms (Views: 150.2ms | ActiveRecord: 0.6ms | Allocations: 35754)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:31:21 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:31:21 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:31:21 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:31:23 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "tes"], ["created_at", "2024-04-29 12:31:23.028811"], ["updated_at", "2024-04-29 12:31:23.028811"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 39, room_id: 1, message: "tes", created_at: "2024-04-29 12:31:23.028811000 +0000", updated_at: "2024-04-29 12:31:23.028811000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.2ms | Allocations: 2964)
+
+
+RoomChannel transmitting {"id"=>39, "room_id"=>1, "message"=>"tes", "created_at"=>"2024-04-29T12:31:23.028Z", "updated_at"=>"2024-04-29T12:31:23.028Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:32:03 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.1ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2290)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 11233)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.7ms | Allocations: 12135)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:03 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:32:03 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:03 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:32:23 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2286)
+  Rendered layout layouts/application.html.erb (Duration: 193.1ms | Allocations: 33848)
+Completed 200 OK in 198ms (Views: 193.5ms | ActiveRecord: 1.0ms | Allocations: 34749)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:23 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:32:23 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:23 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:32:26 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.2ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:32:26.217321"], ["updated_at", "2024-04-29 12:32:26.217321"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 40, room_id: 2, message: "a", created_at: "2024-04-29 12:32:26.217321000 +0000", updated_at: "2024-04-29 12:32:26.217321000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.3ms | Allocations: 2955)
+
+
+RoomChannel transmitting {"id"=>40, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:32:26.217Z", "updated_at"=>"2024-04-29T12:32:26.217Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:32:41 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.1ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2332)
+  Rendered layout layouts/application.html.erb (Duration: 165.8ms | Allocations: 33898)
+Completed 200 OK in 170ms (Views: 166.5ms | ActiveRecord: 0.6ms | Allocations: 34800)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:41 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:32:41 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:32:42 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:32:43 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.5ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:32:43.231880"], ["updated_at", "2024-04-29 12:32:43.231880"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 41, room_id: 2, message: "tes", created_at: "2024-04-29 12:32:43.231880000 +0000", updated_at: "2024-04-29 12:32:43.231880000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.7ms | Allocations: 2923)
+
+
+RoomChannel transmitting {"id"=>41, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:32:43.231Z", "updated_at"=>"2024-04-29T12:32:43.231Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:33:22 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:33:22.339907"], ["updated_at", "2024-04-29 12:33:22.339907"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 42, room_id: 2, message: "tes", created_at: "2024-04-29 12:33:22.339907000 +0000", updated_at: "2024-04-29 12:33:22.339907000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.1ms | Allocations: 2961)
+
+
+RoomChannel transmitting {"id"=>42, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:33:22.339Z", "updated_at"=>"2024-04-29T12:33:22.339Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:34:27 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.1ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2412)
+  Rendered layout layouts/application.html.erb (Duration: 230.9ms | Allocations: 33975)
+Completed 200 OK in 235ms (Views: 231.6ms | ActiveRecord: 1.1ms | Allocations: 34876)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:34:27 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:34:28 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:34:28 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:34:29 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:34:29.701064"], ["updated_at", "2024-04-29 12:34:29.701064"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 43, room_id: 2, message: "tes", created_at: "2024-04-29 12:34:29.701064000 +0000", updated_at: "2024-04-29 12:34:29.701064000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 2967)
+
+
+RoomChannel transmitting {"id"=>43, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:34:29.701Z", "updated_at"=>"2024-04-29T12:34:29.701Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:34:57 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:34:57 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:35:26 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:35:26.945238"], ["updated_at", "2024-04-29 12:35:26.945238"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 44, room_id: 2, message: "tes", created_at: "2024-04-29 12:35:26.945238000 +0000", updated_at: "2024-04-29 12:35:26.945238000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 96ms (ActiveRecord: 4.9ms | Allocations: 15403)
+
+
+RoomChannel transmitting {"id"=>44, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:35:26.945Z", "updated_at"=>"2024-04-29T12:35:26.945Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:35:28 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 8.2ms | Allocations: 1317)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 233.0ms | Allocations: 15734)
+  Rendered layout layouts/application.html.erb (Duration: 7986.4ms | Allocations: 223581)
+Completed 200 OK in 8045ms (Views: 8000.1ms | ActiveRecord: 0.8ms | Allocations: 230224)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:35:36 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:35:36 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:35:36 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:35:38 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:35:38.382893"], ["updated_at", "2024-04-29 12:35:38.382893"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 45, room_id: 2, message: "tes", created_at: "2024-04-29 12:35:38.382893000 +0000", updated_at: "2024-04-29 12:35:38.382893000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.1ms | Allocations: 3132)
+
+
+RoomChannel transmitting {"id"=>45, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:35:38.382Z", "updated_at"=>"2024-04-29T12:35:38.382Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:36:10 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.4ms | Allocations: 794)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2654)
+  Rendered layout layouts/application.html.erb (Duration: 197.7ms | Allocations: 31465)
+Completed 200 OK in 204ms (Views: 198.9ms | ActiveRecord: 0.9ms | Allocations: 32447)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:36:10 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:36:10 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:36:10 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:36:11 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:36:11.792643"], ["updated_at", "2024-04-29 12:36:11.792643"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 46, room_id: 2, message: "a", created_at: "2024-04-29 12:36:11.792643000 +0000", updated_at: "2024-04-29 12:36:11.792643000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 2.7ms | Allocations: 2923)
+
+
+RoomChannel transmitting {"id"=>46, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:36:11.792Z", "updated_at"=>"2024-04-29T12:36:11.792Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:44:05 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 793)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2630)
+  Rendered layout layouts/application.html.erb (Duration: 235.4ms | Allocations: 36780)
+Completed 200 OK in 244ms (Views: 236.2ms | ActiveRecord: 1.5ms | Allocations: 37859)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:44:05 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:44:08 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:44:08.608020"], ["updated_at", "2024-04-29 12:44:08.608020"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 47, room_id: 2, message: "tes", created_at: "2024-04-29 12:44:08.608020000 +0000", updated_at: "2024-04-29 12:44:08.608020000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 2.8ms | Allocations: 2878)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:44:29 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.3ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2626)
+  Rendered layout layouts/application.html.erb (Duration: 197.1ms | Allocations: 32267)
+Completed 200 OK in 203ms (Views: 198.9ms | ActiveRecord: 0.6ms | Allocations: 33168)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:44:30 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:44:30 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:44:32 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:44:32.037356"], ["updated_at", "2024-04-29 12:44:32.037356"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 48, room_id: 2, message: "tes", created_at: "2024-04-29 12:44:32.037356000 +0000", updated_at: "2024-04-29 12:44:32.037356000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 2973)
+
+
+RoomChannel transmitting {"id"=>48, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:44:32.037Z", "updated_at"=>"2024-04-29T12:44:32.037Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:45:45 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.8ms | Allocations: 1156)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 3717)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 13048)
+Completed 200 OK in 52ms (Views: 47.4ms | ActiveRecord: 0.6ms | Allocations: 14593)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:45:46 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:45:46 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:45:46 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:45:49 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:45:49.415750"], ["updated_at", "2024-04-29 12:45:49.415750"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 49, room_id: 2, message: "tes", created_at: "2024-04-29 12:45:49.415750000 +0000", updated_at: "2024-04-29 12:45:49.415750000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 3.5ms | Allocations: 3336)
+
+
+RoomChannel transmitting {"id"=>49, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:45:49.415Z", "updated_at"=>"2024-04-29T12:45:49.415Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:46:30 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2710)
+  Rendered layout layouts/application.html.erb (Duration: 200.3ms | Allocations: 33203)
+Completed 200 OK in 206ms (Views: 201.3ms | ActiveRecord: 0.8ms | Allocations: 34158)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:46:30 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:46:30 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:46:30 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:46:32 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:46:32.678051"], ["updated_at", "2024-04-29 12:46:32.678051"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 50, room_id: 2, message: "tes", created_at: "2024-04-29 12:46:32.678051000 +0000", updated_at: "2024-04-29 12:46:32.678051000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 3.0ms | Allocations: 3087)
+
+
+RoomChannel transmitting {"id"=>50, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:46:32.678Z", "updated_at"=>"2024-04-29T12:46:32.678Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:46:41 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.4ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.6ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2748)
+  Rendered layout layouts/application.html.erb (Duration: 165.4ms | Allocations: 34285)
+Completed 200 OK in 170ms (Views: 165.5ms | ActiveRecord: 1.0ms | Allocations: 35186)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:46:41 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:46:41 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:46:41 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:46:43 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:46:43.470569"], ["updated_at", "2024-04-29 12:46:43.470569"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 51, room_id: 2, message: "tes", created_at: "2024-04-29 12:46:43.470569000 +0000", updated_at: "2024-04-29 12:46:43.470569000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.2ms | Allocations: 2955)
+
+
+RoomChannel transmitting {"id"=>51, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:46:43.470Z", "updated_at"=>"2024-04-29T12:46:43.470Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:48:09 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.1ms | Allocations: 1339)
+  [1m[36mRoomMessage Load (0.7ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 201.9ms | Allocations: 16149)
+  Rendered layout layouts/application.html.erb (Duration: 8087.2ms | Allocations: 224794)
+Completed 200 OK in 8303ms (Views: 8101.5ms | ActiveRecord: 3.6ms | Allocations: 249379)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:48:18 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:48:18 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:48:23 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:48:23.897792"], ["updated_at", "2024-04-29 12:48:23.897792"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 52, room_id: 2, message: "tes", created_at: "2024-04-29 12:48:23.897792000 +0000", updated_at: "2024-04-29 12:48:23.897792000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 3.2ms | Allocations: 4962)
+
+
+RoomChannel transmitting {"id"=>52, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:48:23.897Z", "updated_at"=>"2024-04-29T12:48:23.897Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:52:15 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:52:15 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:52:15 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.4ms | Allocations: 1337)
+  [1m[36mRoomMessage Load (0.5ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 192.0ms | Allocations: 16179)
+  Rendered layout layouts/application.html.erb (Duration: 7358.6ms | Allocations: 231158)
+Completed 200 OK in 7508ms (Views: 7373.2ms | ActiveRecord: 2.0ms | Allocations: 247960)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:52:23 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:52:23 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:52:23 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:52:39 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tea", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tea"], ["created_at", "2024-04-29 12:52:39.794765"], ["updated_at", "2024-04-29 12:52:39.794765"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 53, room_id: 2, message: "tea", created_at: "2024-04-29 12:52:39.794765000 +0000", updated_at: "2024-04-29 12:52:39.794765000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 3.4ms | Allocations: 4948)
+
+
+RoomChannel transmitting {"id"=>53, "room_id"=>2, "message"=>"tea", "created_at"=>"2024-04-29T12:52:39.794Z", "updated_at"=>"2024-04-29T12:52:39.794Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:53:06 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 815)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3024)
+  Rendered layout layouts/application.html.erb (Duration: 188.4ms | Allocations: 32602)
+Completed 200 OK in 192ms (Views: 189.2ms | ActiveRecord: 0.5ms | Allocations: 33596)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:53:06 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:53:06 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:53:06 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:53:08 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:53:08.399367"], ["updated_at", "2024-04-29 12:53:08.399367"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 54, room_id: 2, message: "a", created_at: "2024-04-29 12:53:08.399367000 +0000", updated_at: "2024-04-29 12:53:08.399367000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 3.5ms | Allocations: 2973)
+
+
+RoomChannel transmitting {"id"=>54, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:53:08.399Z", "updated_at"=>"2024-04-29T12:53:08.399Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:53:19 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.4ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2916)
+  Rendered layout layouts/application.html.erb (Duration: 226.9ms | Allocations: 33616)
+Completed 200 OK in 231ms (Views: 227.7ms | ActiveRecord: 0.7ms | Allocations: 34533)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:53:19 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:53:19 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:53:19 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:53:21 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:53:21.201265"], ["updated_at", "2024-04-29 12:53:21.201265"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 55, room_id: 2, message: "a", created_at: "2024-04-29 12:53:21.201265000 +0000", updated_at: "2024-04-29 12:53:21.201265000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.5ms | Allocations: 2986)
+
+
+RoomChannel transmitting {"id"=>55, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:53:21.201Z", "updated_at"=>"2024-04-29T12:53:21.201Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:55:07 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.8ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.7ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 216.3ms | Allocations: 35144)
+Completed 200 OK in 223ms (Views: 216.3ms | ActiveRecord: 1.7ms | Allocations: 36045)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:55:07 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:55:07 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:55:07 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:55:09 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:55:09.372696"], ["updated_at", "2024-04-29 12:55:09.372696"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 56, room_id: 2, message: "tes", created_at: "2024-04-29 12:55:09.372696000 +0000", updated_at: "2024-04-29 12:55:09.372696000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.0ms | Allocations: 2950)
+
+
+RoomChannel transmitting {"id"=>56, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-29T12:55:09.372Z", "updated_at"=>"2024-04-29T12:55:09.372Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:56:12 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.0ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3000)
+  Rendered layout layouts/application.html.erb (Duration: 218.5ms | Allocations: 35088)
+Completed 200 OK in 225ms (Views: 219.6ms | ActiveRecord: 0.7ms | Allocations: 35990)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:56:13 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:56:13 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:56:13 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:56:14 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.8ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:56:14.966282"], ["updated_at", "2024-04-29 12:56:14.966282"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 57, room_id: 2, message: "a", created_at: "2024-04-29 12:56:14.966282000 +0000", updated_at: "2024-04-29 12:56:14.966282000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 2.9ms | Allocations: 2979)
+
+
+RoomChannel transmitting {"id"=>57, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:56:14.966Z", "updated_at"=>"2024-04-29T12:56:14.966Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:57:43 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.1ms | Allocations: 1156)
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4095)
+  Rendered layout layouts/application.html.erb (Duration: 167.4ms | Allocations: 36198)
+Completed 200 OK in 174ms (Views: 169.4ms | ActiveRecord: 0.6ms | Allocations: 37738)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:57:43 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:57:46 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:57:46.247622"], ["updated_at", "2024-04-29 12:57:46.247622"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 58, room_id: 2, message: "tes", created_at: "2024-04-29 12:57:46.247622000 +0000", updated_at: "2024-04-29 12:57:46.247622000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 2.9ms | Allocations: 3243)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:57:47 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-29 12:57:47.205110"], ["updated_at", "2024-04-29 12:57:47.205110"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 59, room_id: 2, message: "tes", created_at: "2024-04-29 12:57:47.205110000 +0000", updated_at: "2024-04-29 12:57:47.205110000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.2ms | Allocations: 2901)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:57:52 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.6ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3134)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 12030)
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 1.1ms | Allocations: 12985)
+
+
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:57:54 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:57:54.043208"], ["updated_at", "2024-04-29 12:57:54.043208"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 60, room_id: 2, message: "a", created_at: "2024-04-29 12:57:54.043208000 +0000", updated_at: "2024-04-29 12:57:54.043208000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 3.5ms | Allocations: 2886)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-29 19:58:04 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 772)
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:12
+  Rendered rooms/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3168)
+  Rendered layout layouts/application.html.erb (Duration: 161.2ms | Allocations: 34663)
+Completed 200 OK in 165ms (Views: 162.0ms | ActiveRecord: 0.5ms | Allocations: 35564)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-29 19:58:04 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-29 19:58:04 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-29 19:58:05 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"a", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:12:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "a"], ["created_at", "2024-04-29 12:58:05.964817"], ["updated_at", "2024-04-29 12:58:05.964817"]]
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:5:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 61, room_id: 2, message: "a", created_at: "2024-04-29 12:58:05.964817000 +0000", updated_at: "2024-04-29 12:58:05.964817000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 3.0ms | Allocations: 2983)
+
+
+RoomChannel transmitting {"id"=>61, "room_id"=>2, "message"=>"a", "created_at"=>"2024-04-29T12:58:05.964Z", "updated_at"=>"2024-04-29T12:58:05.964Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)

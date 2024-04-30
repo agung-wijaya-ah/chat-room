@@ -22883,3 +22883,534 @@ Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.2ms | Allocations: 20
 ActiveRecord::RecordInvalid (Validation failed: Message can't be blank):
   
 app/controllers/room_messages_controller.rb:7:in `create'
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 08:32:23 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"", "room_id"=>"26"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:13:in `load_entities'
+Completed 422 Unprocessable Entity in 20ms (ActiveRecord: 2.0ms | Allocations: 8542)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Message can't be blank):
+  
+app/controllers/room_messages_controller.rb:6:in `create'
+Started GET "/rooms/new" for 127.0.0.1 at 2024-04-30 08:32:28 +0700
+Processing by RoomsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 2.7ms | Allocations: 1461)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1538)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 10916)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.0ms | Allocations: 11647)
+
+
+Started POST "/rooms" for 127.0.0.1 at 2024-04-30 08:32:29 +0700
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>""}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE LOWER("rooms"."name") = LOWER(?) LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 2.5ms | Allocations: 1926)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1987)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 10932)
+Completed 200 OK in 45ms (Views: 32.5ms | ActiveRecord: 0.5ms | Allocations: 15035)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-30 08:41:04 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 38.3ms | Allocations: 5941)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 58.3ms | Allocations: 6502)
+  Rendered layout layouts/application.html.erb (Duration: 909.7ms | Allocations: 39745)
+Completed 200 OK in 1157ms (Views: 948.2ms | ActiveRecord: 1.3ms | Allocations: 45891)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-30 08:44:23 +0700
+  [1m[35m (46.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 3 pending migrations:
+
+20240426143017_create_rooms.rb
+20240426143031_create_room_messages.rb
+20240426160929_remove_user_id_room_messages.rb
+
+
+):
+  
+activerecord (7.0.8.1) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8.1) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8.1) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8.1) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRooms (20240426143017)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_rooms_on_name" ON "rooms" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240426143017"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRoomMessages (20240426143031)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+, CONSTRAINT "fk_rails_76bc7b974e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_user_id" ON "room_messages" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240426143031"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveUserIdRoomMessages (20240426160929)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aroom_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "user_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_user_id" ON "aroom_messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aroom_messages_on_room_id" ON "aroom_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aroom_messages" ("id","room_id","user_id","message","created_at","updated_at")
+                     SELECT "id","room_id","user_id","message","created_at","updated_at" FROM "room_messages"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "room_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "room_messages" ("id" integer NOT NULL PRIMARY KEY, "room_id" integer NOT NULL, "message" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8ed44f6e34"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_room_messages_on_room_id" ON "room_messages" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "room_messages" ("id","room_id","message","created_at","updated_at")
+                     SELECT "id","room_id","message","created_at","updated_at" FROM "aroom_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aroom_messages"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240426160929"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-30 01:44:39.695096"], ["updated_at", "2024-04-30 01:44:39.695096"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/rooms" for 127.0.0.1 at 2024-04-30 08:49:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>""}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE LOWER("rooms"."name") = LOWER(?) LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 518.0ms | Allocations: 9515)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 527.8ms | Allocations: 10046)
+  Rendered layout layouts/application.html.erb (Duration: 689.5ms | Allocations: 43091)
+Completed 200 OK in 730ms (Views: 698.0ms | ActiveRecord: 1.4ms | Allocations: 58563)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2024-04-30 08:49:36 +0700
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 3.2ms | Allocations: 1083)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 10913)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.3ms | Allocations: 11907)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2024-04-30 08:50:31 +0700
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 12.9ms | Allocations: 1006)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 10817)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.2ms | Allocations: 11757)
+
+
+Started GET "/rooms/new" for 127.0.0.1 at 2024-04-30 08:50:39 +0700
+Processing by RoomsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 2.1ms | Allocations: 1349)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1571)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 10518)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.0ms | Allocations: 10902)
+
+
+Started POST "/rooms" for 127.0.0.1 at 2024-04-30 08:50:40 +0700
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"tes"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE LOWER("rooms"."name") = LOWER(?) LIMIT ?[0m  [["name", "tes"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Create (1.1ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "tes"], ["created_at", "2024-04-30 01:50:40.481292"], ["updated_at", "2024-04-30 01:50:40.481292"]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+Redirected to http://127.0.0.1:3000/rooms/1
+Completed 302 Found in 17ms (ActiveRecord: 3.6ms | Allocations: 4710)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:40 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.8ms | Allocations: 780)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2284)
+  Rendered layout layouts/application.html.erb (Duration: 38.3ms | Allocations: 11596)
+Completed 200 OK in 214ms (Views: 39.4ms | ActiveRecord: 1.1ms | Allocations: 21566)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 08:50:40 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:40 +0700
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 08:50:41 +0700
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 55ms (Views: 17.7ms | ActiveRecord: 0.5ms | Allocations: 2801)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:44 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 727)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1613)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 10901)
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 0.4ms | Allocations: 12029)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 08:50:44 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 08:50:44 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:44 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 08:50:44 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 9ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 1606)
+
+
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms" for 127.0.0.1 at 2024-04-30 08:50:46 +0700
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 11.4ms | Allocations: 671)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 732)
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 10119)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.3ms | Allocations: 10410)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 08:50:46 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:49 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.3ms | Allocations: 670)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1473)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 10661)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 0.5ms | Allocations: 11603)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 08:50:49 +0700
+Started GET "/rooms/1" for 127.0.0.1 at 2024-04-30 08:50:49 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 08:50:49 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.2ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 1430)
+
+
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 08:50:59 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"Halo", "room_id"=>"1"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:13:in `load_entities'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+  [1m[36mRoomMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 1], ["message", "Halo"], ["created_at", "2024-04-30 01:50:59.266375"], ["updated_at", "2024-04-30 01:50:59.266375"]]
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ: #<RoomMessage id: 1, room_id: 1, message: "Halo", created_at: "2024-04-30 01:50:59.266375000 +0000", updated_at: "2024-04-30 01:50:59.266375000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 3.4ms | Allocations: 4036)
+
+
+RoomChannel transmitting {"id"=>1, "room_id"=>1, "message"=>"Halo", "created_at"=>"2024-04-30T01:50:59.266Z", "updated_at"=>"2024-04-30T01:50:59.266Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMQ)
+Started GET "/" for 127.0.0.1 at 2024-04-30 09:00:27 +0700
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 4.9ms | Allocations: 891)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 958)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 10333)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.6ms | Allocations: 10660)
+
+
+Started GET "/rooms/new" for 127.0.0.1 at 2024-04-30 09:00:31 +0700
+Processing by RoomsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 1.1ms | Allocations: 1115)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1176)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 10121)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 10414)
+
+
+Started POST "/rooms" for 127.0.0.1 at 2024-04-30 09:00:32 +0700
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"tes"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE LOWER("rooms"."name") = LOWER(?) LIMIT ?[0m  [["name", "tes"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form_create_room.html.erb (Duration: 2.0ms | Allocations: 1902)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1963)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 10908)
+Completed 200 OK in 39ms (Views: 29.3ms | ActiveRecord: 0.4ms | Allocations: 14666)
+
+
+Started POST "/rooms" for 127.0.0.1 at 2024-04-30 09:00:45 +0700
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"ROOM 1"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE LOWER("rooms"."name") = LOWER(?) LIMIT ?[0m  [["name", "ROOM 1"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Create (0.9ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ROOM 1"], ["created_at", "2024-04-30 02:00:46.010779"], ["updated_at", "2024-04-30 02:00:46.010779"]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+Redirected to http://127.0.0.1:3000/rooms/2
+Completed 302 Found in 12ms (ActiveRecord: 3.1ms | Allocations: 3114)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:46 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.9ms | Allocations: 721)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1519)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 10629)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.4ms | Allocations: 11610)
+
+
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 09:00:46 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:46 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 09:00:46 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 7ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1635)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:47 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 2.2ms | Allocations: 721)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1520)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 10895)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 0.3ms | Allocations: 11834)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 09:00:47 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 09:00:47 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:47 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 09:00:47 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by RoomsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 7ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1659)
+
+
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started POST "/room_messages" for 127.0.0.1 at 2024-04-30 09:00:49 +0700
+Processing by RoomMessagesController#create as JS
+  Parameters: {"room_message"=>{"message"=>"tes", "room_id"=>"2"}, "commit"=>"Send"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/room_messages_controller.rb:13:in `load_entities'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+  [1m[36mRoomMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "room_messages" ("room_id", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["room_id", 2], ["message", "tes"], ["created_at", "2024-04-30 02:00:49.858878"], ["updated_at", "2024-04-30 02:00:49.858878"]]
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/room_messages_controller.rb:6:in `create'
+[ActionCable] Broadcasting to room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg: #<RoomMessage id: 2, room_id: 2, message: "tes", created_at: "2024-04-30 02:00:49.858878000 +0000", updated_at: "2024-04-30 02:00:49.858878000 +0000">
+No template found for RoomMessagesController#create, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 2.9ms | Allocations: 2904)
+
+
+RoomChannel transmitting {"id"=>2, "room_id"=>2, "message"=>"tes", "created_at"=>"2024-04-30T02:00:49.858Z", "updated_at"=>"2024-04-30T02:00:49.858Z"} (via streamed from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg)
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:51 +0700
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/_rooms.html.erb:7
+  Rendered rooms/_rooms.html.erb (Duration: 1.6ms | Allocations: 721)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1516)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 10695)
+Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 0.4ms | Allocations: 11632)
+
+
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 09:00:51 +0700
+RoomChannel stopped streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+Started GET "/cable" for 127.0.0.1 at 2024-04-30 09:00:51 +0700
+Started GET "/rooms/2" for 127.0.0.1 at 2024-04-30 09:00:51 +0700
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2024-04-30 09:00:51 +0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by RoomsController#show as JSON
+  ↳ app/channels/room_channel.rb:3:in `subscribed'
+  Parameters: {"id"=>"2"}
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room:Z2lkOi8vc2ltcGxlLWNoYXQtd2ViYXBwL1Jvb20vMg
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:39:in `load_entities'
+  [1m[36mRoomMessage Load (0.3ms)[0m  [1m[34mSELECT "room_messages".* FROM "room_messages" WHERE "room_messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:30:in `block (2 levels) in show'
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1645)
+
+

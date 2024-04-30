@@ -5,7 +5,7 @@
 </div>
 
 <% if @rooms.present? %>
-  <nav class="nav flex-column top-border-grey">
+  <nav class="room-list top-border-grey">
     <% @rooms.each do |room| %>
       <%= link_to room.name, room_path(room), class: 'nav-link room-nav-link' %>
     <% end %>

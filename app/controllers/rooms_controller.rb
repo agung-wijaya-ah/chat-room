@@ -9,12 +9,13 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new permitted_parameters
-
-    if @room.save
+    begin
+      @room.save!
       flash[:success] = "Room #{@room.name} was created successfully"
-      redirect_to rooms_path
-    else
-      render :new
+      redirect_to ({ action: "show", id: @room.id })
+    rescue ActiveRecord::RecordInvalid => e
+      flash[:error] = e.record.errors.full_messages.to_sentence
+      render :action => "new"
     end
   end
 
@@ -32,15 +33,6 @@ class RoomsController < ApplicationController
     end
   end
   
-  def update
-    if @room.update_attributes(permitted_parameters)
-      flash[:success] = "Room #{@room.name} was updated successfully"
-      redirect_to rooms_path
-    else
-      render :new
-    end
-  end
-
   protected
 
   def load_entities

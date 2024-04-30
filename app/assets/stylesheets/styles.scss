@@ -9,6 +9,10 @@ body{
   background: #141b25;
   border-bottom: 2px solid #1b242f;
 }
+.room-list{
+  overflow-y: auto;
+  height: 73vh;
+}
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: $primary !important;
 }
@@ -37,7 +41,7 @@ body{
   }
 }
 
-.chat-input {
+.chat-input, .chat-input:focus {
   background:#0a0f1a;
   border: 0 none;
 }
@@ -65,7 +69,4 @@ body{
 
 .nopadding {
   padding: 0 !important;
-}
-.index-body{
-  height: 80vh;
 }

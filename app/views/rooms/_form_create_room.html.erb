@@ -1,4 +1,4 @@
-<%= simple_form_for @room do |form| %>
-  <%= form.input :name %>
-  <%= form.submit "Save", class: 'btn btn-success' %>
+<%= simple_form_for @room,html: { novalidate: true } do |form| %>
+  <%= form.input :name, label: 'Enter Chat Room Name',input_html: {class: 'chat-input'}%>
+  <%= form.submit "Save", class: 'btn btn-primary' %>
 <% end %>

@@ -11,7 +11,6 @@ class RoomsController < ApplicationController
     @room = Room.new permitted_parameters
     begin
       @room.save!
-      flash[:success] = "Room #{@room.name} was created successfully"
       redirect_to ({ action: "show", id: @room.id })
     rescue ActiveRecord::RecordInvalid => e
       flash[:error] = e.record.errors.full_messages.to_sentence
